@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>web</title>
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/accordion.min.css"> -->
+	<link href="https://fonts.googleapis.com/css?family=Laila&display=swap" rel="stylesheet">
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>  
+  <link rel="stylesheet" type="text/css" href="web.css">
+ <style>
+ 	 body{
+  		margin:30px auto;
+  		box-sizing: border-box; 
+  	/*background-size: auto;*/
+  		background-repeat: :no-repeat; 
+  		background-size: 100%; 
+  		background-color: #E9E4F0;
+  		font-family: 'Laila', ;
+  		
+
+  	}  
+ 
+input{
+	padding: 15px 32px;
+	/*text-align: center;*/
+	margin: 4px 2px;
+	font-size: 16px; 
+	color:red;
+}
+span{
+	color:black;
+	text-decoration: underline;
+}
+
+button {
+  background-color: black; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+} 
+h1{
+	color:blue;
+}
+#para{
+	font-family: 'Laila' ;
+}
+
+ p{
+ font-size:30px;
+ }
+
+.column{
+	float:left; 
+	width:30%; 
+	padding: 10px;
+	height:300px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} 
+
+#score{
+	font-size:30px;
+}
+
+ </style>
+
+</head>
+<body >
+<img src="pi.png" >
+	<div  class="column" id="first">
+	<h1>Welcome TO WordGamE</h1> 
+	
+	<p id="para">	You enter the name with <b>first Character</b> displaying above input box 
+		either by simply click <b>enter</b> or using <b>add</b> button </p> 
+	</div>
+	<div id="second" class="column"> 
+		<center>
+<h2>First Letter is '<span>t</span>'</h2>
+</center> 
+<center>
+ <input type="text"> 
+ <button id="add" > ADD</button> 
+ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+ <!-- <h2>Score<span id="score">0</span> </h2>  -->
+ <p>
+ </p>
+ <div id="one" >  
+ </div> 
+ </center> 
+</div>
+
+ <div  class="column"><br>
+ 	<br>
+ 	<br>
+ 	<br>
+ <h1>Score</h1>
+ 
+
+ <div id="score">
+ 	
+ </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" >
+ 	
+var score=0;
+var last='t';
+$("#add").on('click',function(e) {
+    
+    	var a=$("input").val(); 
+    	if(a=="")
+    	{
+    		alert("Enter text ");
+    	}  
+    	else
+    	{
+var first =a.slice(0,1); 
+if(first===last)
+{
+
+ $("#one").append("<li>"+a+"</li>");  
+ score=score+1;
+ last=a.slice(-1);
+ $("span").text(last);
+ $("input").val("");   
+ // $("h2").text(score); 
+ $("#score").text(score);
+}
+else
+
+  {
+	alert("gameover "+"Your Score is "+score);
+	first='t';
+  score=0; 
+  $("#score").text("0");
+  $("#one").text(""); 
+  $("input").val("");
+
+        
+  }
+ 
+}}); 
+
+$("input").on('keypress',function(e) {
+    if(e.which == 13) {
+
+    	var a=$("input").val();
+    	if(a=="")
+    	{
+    		alert("Enter text");
+    	} 
+    	else
+    	{
+var first =a.slice(0,1); 
+if(first===last)
+{
+
+ $("#one").append("<li>"+a+"</li>");  
+ score=score+1;
+ last=a.slice(-1);
+ $("span").text(last);
+ $("input").val("");   
+ // $("h2").text(score); 
+ $("#score").text(score);
+}
+else
+
+  {
+	alert("gameover "+"Your Score is "+score);
+	 first='t';
+  score=0; 
+   $("#score").text("0");
+  $("#one").text(""); 
+  $("input").val("");
+
+  } 
+  
+}
+        
+}}); 
+
+ </script>
+
+</html>
